@@ -119,7 +119,7 @@ public class WebPageWriter {
 	 */
 	private static void geraArquivoHtml(StringBuilder buffer)
 			throws IOException {
-		FileWriter fstream = new FileWriter("C:/Users/Casimiro/Documents/Responsive/Responsive_Hill_climbing/dados_saida/MyHtml.html");
+		FileWriter fstream = new FileWriter("C:/Users/Casimiro/Documents/Responsive_Web_Page/dados_saida/MyHtml.html");
 	    out = new BufferedWriter(fstream);
 	    out.write(buffer.toString());
 	    out.close();
