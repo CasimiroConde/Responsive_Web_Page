@@ -129,4 +129,47 @@ public class TestMatrizPosicionamento {
 		assertEquals(-1, m.getCelula(2, 1));
 		assertEquals(2, m.getCelula(2, 2));
 	}
+	
+	@Test
+	public void testAdicionaNoroesteNorte() {
+		MatrizPosicionamento m = new MatrizPosicionamento();
+		m.adicionaComponenteInicial(2);
+		m.adicionaNoroeste(3);
+		m.adicionaNorte(4);
+		assertEquals(3, m.getLinhas());
+		assertEquals(2, m.getColunas());
+		assertEquals(4, m.getCelula(0, 0));
+		assertEquals(-1, m.getCelula(0, 1));
+		assertEquals(3, m.getCelula(1, 0));
+		assertEquals(-1, m.getCelula(1, 1));
+		assertEquals(-1, m.getCelula(2, 0));
+		assertEquals(2, m.getCelula(2, 1));
+	}
+	
+	@Test
+	public void testAdicionaNoroesteSul() {
+		MatrizPosicionamento m = new MatrizPosicionamento();
+		m.adicionaComponenteInicial(2);
+		m.adicionaNoroeste(3);
+		m.adicionaSul(4);
+		assertEquals(2, m.getLinhas());
+		assertEquals(2, m.getColunas());
+		assertEquals(3, m.getCelula(0, 0));
+		assertEquals(-1, m.getCelula(0, 1));
+		assertEquals(4, m.getCelula(1, 0));
+		assertEquals(2, m.getCelula(1, 1));
+	}
+	@Test
+	public void testAdicionaNoroesteLeste() {
+		MatrizPosicionamento m = new MatrizPosicionamento();
+		m.adicionaComponenteInicial(2);
+		m.adicionaNoroeste(3);
+		m.adicionaLeste(4);
+		assertEquals(2, m.getLinhas());
+		assertEquals(2, m.getColunas());
+		assertEquals(3, m.getCelula(0, 0));
+		assertEquals(4, m.getCelula(0, 1));
+		assertEquals(-1, m.getCelula(1, 0));
+		assertEquals(2, m.getCelula(1, 1));
+	}
 }
