@@ -5,7 +5,7 @@ import classes.Modelo;
 
 public class ConstrutorMatrizPosicionamento {
 
-	public MatrizPosicionamento executa(Solucao solucao, Modelo modelo)
+	public static MatrizPosicionamento executa(Solucao solucao, Modelo modelo)
 	{
 		MatrizPosicionamento m = new MatrizPosicionamento();
 		m.adicionaComponenteInicial(0);
