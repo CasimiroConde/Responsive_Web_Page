@@ -59,7 +59,7 @@ public class MatrizPosicionamento
 		
 		componentes[ultimaPosicaoY-1][ultimaPosicaoX+1] = indice;
 		ultimaPosicaoX = ultimaPosicaoX+1;
-		ultimaPosicaoY = ultimaPosicaoY+1;
+		ultimaPosicaoY = ultimaPosicaoY-1;
 		return true;
 	}
 	

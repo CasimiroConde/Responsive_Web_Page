@@ -80,6 +80,10 @@ public @Data class UnidadeSolucao {
 		this.fatorTamanho = (double) (Math.random() * ((1 - 0)));
 	}
 	
+	public void geraFatorPosicao() {
+		this.fatorTamanho = (double) (Math.random() * ((1 - 0)));
+	}
+	
 	public int pegaCaracteristicaIndice(Componente componente){
 		int indice = (int) Math.round(componente.getConfiguracao().pegaNumeroCaracteristicas() * this.getFatorTamanho());
 		if(indice  == componente.getConfiguracao().pegaNumeroCaracteristicas())

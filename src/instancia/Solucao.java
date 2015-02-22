@@ -226,4 +226,8 @@ public @Data class Solucao{
 		}
 		return copied;
 	}
+
+	public void mudaFatorPosicaoIndice(int i) {
+		this.pegaUnidadeSolucaoIndice(i).geraFatorPosicao();
+	}
 }

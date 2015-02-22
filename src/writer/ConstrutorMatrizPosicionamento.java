@@ -49,7 +49,7 @@ public class ConstrutorMatrizPosicionamento {
 			}
 			
 			if (!ok)
-				return null;
+				return m;
 		}
 		
 		return m;
