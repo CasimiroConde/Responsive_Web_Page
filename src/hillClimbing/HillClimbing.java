@@ -6,7 +6,7 @@ import classes.Modelo;
 
 public @Data class HillClimbing {
 	
-	static private int INTERACOES = 1;
+	static private int INTERACOES = 50000000;
 	private Solucao solucao; // fator de otimização
 	//private Solucao solucaoTeste; // Altura Máxima dos objetivos
 
@@ -23,11 +23,11 @@ public @Data class HillClimbing {
 					}
 				}
 				
-				//System.out.println("OK");
+				System.out.println("OK");
 			}
 			else {
 				solucaoTeste = new Solucao(modelo);
-				//System.out.println("NOK");
+				System.out.println("NOK");
 			}
 		}
 

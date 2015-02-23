@@ -5,7 +5,7 @@ import classes.Modelo;
 
 public class ConstrutorMatrizPosicionamento {
 
-	public static MatrizPosicionamento executa(Solucao solucao, Modelo modelo)
+	public static MatrizPosicionamento executa(Solucao solucao, Modelo modelo, boolean construcaoCompleta)
 	{
 		MatrizPosicionamento m = new MatrizPosicionamento();
 		m.adicionaComponenteInicial(0);
@@ -48,10 +48,21 @@ public class ConstrutorMatrizPosicionamento {
 				ok = m.adicionaSudeste(i);
 			}
 			
-			if (!ok)
+			if (!ok){
+				construcaoCompleta = ok;
 				return m;
+			}
 		}
-		
+		construcaoCompleta = true;
 		return m;
+	}
+	
+	public static void print(MatrizPosicionamento matriz){
+		for(int i = 0 ; i < matriz.getLinhas() ; i++){
+			for(int j = 0 ; j < matriz.getColunas() ; j++){
+				System.out.print(matriz.getCelula(i, j) + "|");
+			}
+			System.out.println();
+		}
 	}
 }

@@ -25,10 +25,10 @@ public class MainProgram {
 			config.print();
 
 		for (Componente comp : modelo.getComponentes())
-			comp.print();*/
+			comp.print();
 
 		for (Relacao relac : modelo.getRelacoes())
-			relac.print();
+			relac.print();*/
 		
 		HillClimbing testeHillClimbing = new HillClimbing();
 		testeHillClimbing.executa(modelo);

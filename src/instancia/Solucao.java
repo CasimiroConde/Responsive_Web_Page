@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import validacao.Validacao;
+import writer.ConstrutorMatrizPosicionamento;
+import writer.MatrizPosicionamento;
 import lombok.Data;
 import classes.Componente;
 import classes.Modelo;
@@ -22,7 +24,8 @@ public @Data class Solucao{
 	private Modelo modelo;
 	private String[] nomesFontes;
 	private UnidadeSolucao[] solucao;
-	
+	private MatrizPosicionamento matriz =  new MatrizPosicionamento();
+	private boolean construcaoCompleta = false;
 	/**
 	 * Construtor de uma Solução Vazia 
 	 */
@@ -34,6 +37,7 @@ public @Data class Solucao{
 		for (int i = 0; i < modelo.pegaNumeroComponentes(); i++) {
 			this.solucao[i] = new UnidadeSolucao();
 		}
+		matriz = ConstrutorMatrizPosicionamento.executa(this, modelo, construcaoCompleta);
 	}
 	
 	/** 
@@ -60,11 +64,15 @@ public @Data class Solucao{
 	 * Considerando Unidades de Solução na mesma linha.
 	 */
 	public int calculaAlturaRealSolucao(){
-		ArrayList<Integer> alturaLinha = new ArrayList<Integer>();
+		
+		
+		/*ArrayList<Integer> alturaLinha = new ArrayList<Integer>();
 		int alturaTotal = 0;
 		int cont = 0;
 		int maxCont = 0;
 		for(int i = 0 ; i < this.tamanhoSolucao() ; i++){
+			
+			
 			if(i == 0){
 			alturaLinha.add(this.pegaUnidadeSolucaoIndice(i).pegaAlturaComponente(modelo.pegaComponenteIndice(i)));
 			}else if(this.pegaUnidadeSolucaoIndice(i).getFatorPosicao() > 0.625){
@@ -85,7 +93,8 @@ public @Data class Solucao{
 		for(int i : alturaLinha){
 			alturaTotal += i;
 		}
-		return alturaTotal;
+		*/
+		return DimensoesMatrizPosicionamento.executaAltura(matriz, this, modelo);
 	}
 	
 	/** 
@@ -93,7 +102,7 @@ public @Data class Solucao{
 	 * Ou seja, o tamanhao da maior linha.
 	 */
 	public Integer calculaLarguraRealSolucao(){
-		List<Integer> larguraLinhas = new ArrayList<Integer>();
+		/*List<Integer> larguraLinhas = new ArrayList<Integer>();
 		int largura = 0;
 		int j = 0;
 		
@@ -117,9 +126,9 @@ public @Data class Solucao{
 			if(i > largura){
 				largura = i;
 			}
-		}
+		}*/
 		
-		return largura;
+		return DimensoesMatrizPosicionamento.executaLargura(matriz, this, modelo);
 	}
 	
 	/**
@@ -146,7 +155,7 @@ public @Data class Solucao{
 	 * @return 
 	 */
 	public boolean validaSolucao(Modelo modelo){
-		return Validacao.validaSolucao(this, LARGURATELA, modelo);
+		return Validacao.validaSolucao(this, LARGURATELA, modelo, construcaoCompleta);
 	}
 	
 	/**
@@ -168,9 +177,9 @@ public @Data class Solucao{
 	 * Imprime as informações completas de uma solução. 
 	 */
 	public void print(){
-		for(UnidadeSolucao u : this.solucao){
+		/*for(UnidadeSolucao u : this.solucao){
 			u.print();
-		}
+		}*/
 		System.out.println("Altura Máxima: " + this.calculaAlturaMaximaSolucao());
 		System.out.println("Altura Total: " + this.calculaAlturaRealSolucao());
 		System.out.println("Media Coeficiente de Informação: " + this.calculaCoeficienteSolucao());

@@ -51,9 +51,8 @@ public class WebPageWriter {
 	 * @param buffer
 	 */
 	private static void geraConteudo(Solucao solucao, StringBuilder buffer, Modelo modelo) {
-		MatrizPosicionamento matrix =  new MatrizPosicionamento();
-		matrix = ConstrutorMatrizPosicionamento.executa(solucao, modelo);
-		buffer.append(PrinterMatrizPosicionamento.executa(matrix,solucao,modelo));
+		
+		buffer.append(PrinterMatrizPosicionamento.executa(solucao.getMatriz(),solucao,modelo));
 		
 		/*		ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>();
 		StringBuilder b = new StringBuilder();
