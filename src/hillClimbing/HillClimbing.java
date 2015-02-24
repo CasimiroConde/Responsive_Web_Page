@@ -6,9 +6,10 @@ import classes.Modelo;
 
 public @Data class HillClimbing {
 	
-	static private int INTERACOES = 50000000;
+	static private int INTERACOES = 500;
 	private Solucao solucao; // fator de otimização
-	//private Solucao solucaoTeste; // Altura Máxima dos objetivos
+	private int totalNOK = 0;
+	private int totalOK = 0;
 
 	public void executa(Modelo modelo) {
 		this.solucao = new Solucao(modelo);
@@ -22,15 +23,17 @@ public @Data class HillClimbing {
 						break;
 					}
 				}
-				
+				totalOK++;
 				System.out.println("OK");
 			}
 			else {
 				solucaoTeste = new Solucao(modelo);
-				System.out.println("NOK");
+				totalNOK++;
+				System.out.println("NOK" + j);
 			}
 		}
-
+		System.out.println("Total OK: " + totalOK );
+		System.out.println("Total NOK: " + totalNOK );
 		solucao.print();
 		//WebPageWriter.geraPaginaWeb(solucao);
 	}

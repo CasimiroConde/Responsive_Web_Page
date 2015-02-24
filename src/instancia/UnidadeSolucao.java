@@ -81,7 +81,7 @@ public @Data class UnidadeSolucao {
 	}
 	
 	public void geraFatorPosicao() {
-		this.fatorTamanho = (double) (Math.random() * ((1 - 0)));
+		this.fatorPosicao = (double) (Math.random() * ((1 - 0)));
 	}
 	
 	public int pegaCaracteristicaIndice(Componente componente){

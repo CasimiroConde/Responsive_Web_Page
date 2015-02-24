@@ -1,4 +1,4 @@
-package writer;
+package instancia;
 
 public class MatrizPosicionamento
 {

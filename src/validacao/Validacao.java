@@ -35,8 +35,8 @@ public class Validacao {
 	 * @param modelo
 	 * @return
 	 */
-	public static boolean validaSolucao(Solucao solucao, double larguraTela, Modelo modelo, boolean construcaoCompleta){
-		if(/*validaLargura(solucao, larguraTela) && validaRelacoes(solucao, modelo)*/ construcaoCompleta)
+	public static boolean executa(Solucao solucao, double larguraTela, Modelo modelo, boolean construcaoCompleta){
+		if(validaLargura(solucao, larguraTela) && /*validaRelacoes(solucao, modelo)*/ construcaoCompleta)
 			return true;
 		return false;
 	}

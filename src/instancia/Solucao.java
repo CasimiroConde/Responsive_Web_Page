@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import validacao.Validacao;
-import writer.ConstrutorMatrizPosicionamento;
-import writer.MatrizPosicionamento;
 import lombok.Data;
 import classes.Componente;
 import classes.Modelo;
@@ -25,7 +23,7 @@ public @Data class Solucao{
 	private String[] nomesFontes;
 	private UnidadeSolucao[] solucao;
 	private MatrizPosicionamento matriz =  new MatrizPosicionamento();
-	private boolean construcaoCompleta = false;
+	private boolean construcaoCompleta;
 	/**
 	 * Construtor de uma Solução Vazia 
 	 */
@@ -37,7 +35,7 @@ public @Data class Solucao{
 		for (int i = 0; i < modelo.pegaNumeroComponentes(); i++) {
 			this.solucao[i] = new UnidadeSolucao();
 		}
-		matriz = ConstrutorMatrizPosicionamento.executa(this, modelo, construcaoCompleta);
+		matriz = ConstrutorMatrizPosicionamento.executa(this, modelo);
 	}
 	
 	/** 
@@ -155,7 +153,7 @@ public @Data class Solucao{
 	 * @return 
 	 */
 	public boolean validaSolucao(Modelo modelo){
-		return Validacao.validaSolucao(this, LARGURATELA, modelo, construcaoCompleta);
+		return Validacao.executa(this, LARGURATELA, modelo, construcaoCompleta);
 	}
 	
 	/**

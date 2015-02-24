@@ -1,20 +1,21 @@
-package writer;
+package instancia;
 
-import instancia.Solucao;
 import classes.Modelo;
 
 public class ConstrutorMatrizPosicionamento {
 
-	public static MatrizPosicionamento executa(Solucao solucao, Modelo modelo, boolean construcaoCompleta)
+	public static MatrizPosicionamento executa(Solucao solucao, Modelo modelo)
 	{
 		MatrizPosicionamento m = new MatrizPosicionamento();
 		m.adicionaComponenteInicial(0);
 				
 		for(int i = 1; i < solucao.tamanhoSolucao(); i++)
-		{
-			double fatorPosicao = solucao.pegaUnidadeSolucaoIndice(i).getFatorPosicao();
+		{	
+				
 			boolean ok;
-
+			
+			double fatorPosicao = solucao.pegaUnidadeSolucaoIndice(i).getFatorPosicao();
+			
 			if (fatorPosicao < 0.125)
 			{
 				ok = m.adicionaNoroeste(i);
@@ -49,11 +50,14 @@ public class ConstrutorMatrizPosicionamento {
 			}
 			
 			if (!ok){
-				construcaoCompleta = ok;
-				return m;
+				solucao.pegaUnidadeSolucaoIndice(i).geraFatorPosicao();
+				solucao.setConstrucaoCompleta(ok);
+				i--;
+				//return m;
 			}
+
 		}
-		construcaoCompleta = true;
+		solucao.setConstrucaoCompleta(true);
 		return m;
 	}
 	
